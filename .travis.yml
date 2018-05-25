@@ -9,8 +9,9 @@ services:
   - docker
 
 env:
-  - DEPLOY_BRANCH=master
-  - DOCKERHUB_ORG=medforomics
+  global:
+    - DEPLOY_BRANCH=master
+    - DOCKERHUB_ORG=medforomics
 
 
 jobs:

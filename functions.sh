@@ -1,10 +1,5 @@
 #!/bin/bash
 
-DEPLOY_BRANCH='master'
-DOCKERHUB_ORG="test"
-DOCKERHUB_USERNAME='test'
-DOCKERHUB_PASSWORD='test'
-
 
 function current_branch_name() {
   git rev-parse --abbrev-ref HEAD

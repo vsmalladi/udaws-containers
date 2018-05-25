@@ -11,7 +11,7 @@ services:
 env:
   - DEPLOY_BRANCH=master
   - DOCKERHUB_ORG=medforomics
-  
+
 
 jobs:
   include:
@@ -24,9 +24,6 @@ jobs:
 
 jobs:
   build:
-    docker:
-      # provides python3/bash/docker for build/deploying/testing images
-      - image: circleci/python:3.6.1
     steps:
       - checkout
       - setup_remote_docker
@@ -36,7 +33,6 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install -r tests/requirements.txt
-            pip install -r tests/devRequirements.txt
       - run:
           name: Build Docker Images
           command: ./build-ci.sh
@@ -46,10 +42,10 @@ jobs:
             . venv/bin/activate
             nosetests
             ./test-ci.sh
-      - deploy:
-          name: Deploy Docker Images
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "${DEPLOY_BRANCH}" ]; then
-              docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
-              ./deploy-ci.sh
-            fi
+#      - deploy:
+#          name: Deploy Docker Images
+#          command: |
+#            if [ "${BRANCH}" == "${DEPLOY_BRANCH}" ]; then
+#              docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
+#              ./deploy-ci.sh
+#            fi

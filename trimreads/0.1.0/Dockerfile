@@ -8,7 +8,7 @@ LABEL maintainer="venkat.malladi@utsouthwestern.edu"
 LABEL authors='venkat.malladi@utsouthwestern.edu'
 LABEL version='0.1.0'
 LABEL software='trimgalore, cutadapt, fastqc'
-LABEL description='Image containaling  to run read triming.'
+LABEL description='Image containing software to run read fastq triming.'
 LABEL tags='NGS'
 
 # Install prerequisites
@@ -27,6 +27,12 @@ ENV PATH=/miniconda/bin:${PATH}
 RUN conda update -y conda
 
 # Install FastQC and dependencies
+
+# Needed for FastQC - conda build hangs without this
+ENV OPENJDK_VERSION=8.0.144
+RUN \
+  conda install -c conda-forge openjdk=${OPENJDK_VERSION}
+
 
 ENV FASTQC_VERSION=0.11.5
 RUN \

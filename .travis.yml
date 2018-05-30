@@ -25,7 +25,7 @@ stages:
     if: branch = master
 
 before_script:
-  - git fetch --branch=master --depth=3
+  - git fetch --depth=1
 
 jobs:
   include:

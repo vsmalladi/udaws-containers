@@ -24,6 +24,10 @@ stages:
   - name: deploy
     if: branch = master
 
+before_script:
+  - git fetch --branch=master --depth=3
+    if: branch != master
+
 jobs:
   include:
     - stage: build

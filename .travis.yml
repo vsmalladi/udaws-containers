@@ -26,7 +26,6 @@ stages:
 
 before_script:
   - git fetch --branch=master --depth=3
-    if: branch != master
 
 jobs:
   include:

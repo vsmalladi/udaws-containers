@@ -26,8 +26,6 @@ source functions.sh
 # Check that the Docker Hub organization to use is in the DOCKERHUB_ORG variable
 check_org
 
-# Check that the branch to use for deploying (typically 'master') is in the DEPLOY_BRANCH variable
-check_deploy_branch
 
 # Get the range of commits to compare for detecting changed files
 compare_range=$(get_compare_range)

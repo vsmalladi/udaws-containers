@@ -5,6 +5,7 @@
 # Expects to be authenticated to Docker Hub and only run from DEPLOY_BRANCH
 # Pushes Docker images and tags to Docker Hub when build-ci.sh has built the image
 
+set -e
 source functions.sh
 
 # See build-ci.sh for explanation of these conventions/rules

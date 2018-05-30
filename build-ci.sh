@@ -26,7 +26,6 @@ source functions.sh
 # Check that the Docker Hub organization to use is in the DOCKERHUB_ORG variable
 check_org
 
-
 # Get the range of commits to compare for detecting changed files
 compare_range=$(get_compare_range)
 

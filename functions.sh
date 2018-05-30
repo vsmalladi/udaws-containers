@@ -18,24 +18,6 @@ function changed_paths_in_range() {
   git diff --name-only --diff-filter=d $compare_range
 }
 
-# Check if DEPLOY_BRANCH is set and current branch can be tested
-function check_deploy_branch() {
-  if [[ "$DEPLOY_BRANCH" == "" ]]; then
-    echo "Error: DEPLOY_BRANCH is empty"
-    echo "Please ensure DEPLOY_BRANCH is set to the name of the git branch that should be considered for deploying, typically 'master'";
-    exit 1;
-  else
-    echo "Using Deploy branch as $DEPLOY_BRANCH..."
-  fi
-  current_branch=$(current_branch_name)
-  if [[ "$current_branch" == "$DEPLOY_BRANCH" ]]; then
-    # Current branch is the deploy branch, we must have a merge commit to test/build
-    num_parents=$(get_num_parents "HEAD")
-    if [[ "$num_parents" -lt "2" ]]; then
-      echo "Error: Current branch is the deploy branch ($DEPLOY_BRANCH), but HEAD is not a merge commit. Build failed." && exit 1
-    fi
-  fi
-}
 
 # If the current branch is the deploy branch, return a range representing
 # the two parents of the HEAD's merge commit. If not, return a range comparing

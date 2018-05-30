@@ -13,16 +13,24 @@ services:
 env:
   global:
     - DOCKERHUB_ORG=medforomics
-
+    - DEPLOY_BRANCH=master
 
 install:
   - pip install -r tests/requirements.txt
 
 stages:
   - build
-
+  - test
+  - name: deploy
+    if: branch = master
 
 jobs:
   include:
     - stage: build
       script: ./build-ci.sh
+    - stage: test
+      script: nosetests
+      script: ./test-ci.sh
+    - stage: deploy
+      script: docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
+      script: ./deploy-ci.sh

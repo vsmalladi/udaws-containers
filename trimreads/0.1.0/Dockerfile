@@ -4,7 +4,7 @@ FROM ubuntu:18.04
 
 # Metadata
 
-LABEL maintainer="venkat.malladi@utsouthwestern.edu"
+LABEL maintainer="Venkat Malladi"
 LABEL authors='venkat.malladi@utsouthwestern.edu'
 LABEL version='0.1.0'
 LABEL software='trimgalore, cutadapt, fastqc'

@@ -19,7 +19,6 @@
 #    for building. This way, we can trigger rebuilding a docker image without adding
 #    irrelevant comments or blank lines to Dockerfiles.
 
-set -e
 source functions.sh
 
 

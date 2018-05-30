@@ -27,10 +27,10 @@ stages:
 jobs:
   include:
     - stage: build
-      script: ./build-ci.sh
+      script: sh ci/build.sh
     - stage: test
       script: nosetests
-      script: ./test-ci.sh
+      script: sh ci/test.sh
     - stage: deploy
       script: docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
-      script: ./deploy-ci.sh
+      script: sh ci/deploy.sh

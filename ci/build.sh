@@ -20,7 +20,7 @@
 #    irrelevant comments or blank lines to Dockerfiles.
 
 set -e
-source functions.sh
+source ci/functions.sh
 
 
 # Check that the Docker Hub organization to use is in the DOCKERHUB_ORG variable

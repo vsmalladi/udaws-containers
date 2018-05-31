@@ -6,7 +6,7 @@
 # Pushes Docker images and tags to Docker Hub when build-ci.sh has built the image
 
 set -e
-source functions.sh
+source ci/functions.sh
 
 # See build-ci.sh for explanation of these conventions/rules
 check_org

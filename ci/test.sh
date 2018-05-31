@@ -5,7 +5,7 @@
 # Runs tests for changed Dockerfile/unittest.yml file
 
 set -e
-source functions.sh
+source ci/functions.sh
 
 # See build-ci.sh for explanation of these conventions/rules
 check_org

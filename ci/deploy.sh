@@ -13,4 +13,6 @@ check_org
 
 compare_range=$(get_compare_range)
 paths=$(changed_paths_in_range "$compare_range")
+
+build_images "$DOCKERHUB_ORG" "$paths"
 push_images "$DOCKERHUB_ORG" "$paths"

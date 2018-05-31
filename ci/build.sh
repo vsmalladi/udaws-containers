@@ -3,7 +3,6 @@
 # CI Build Script for U-DAWS-Dockerfiles
 #
 # Builds docker images when a commit to the repo changes a Dockerfile
-# Tags versioned images as `latest` when a symlink `latest` points to the version's directory
 #
 # Detecting changes to build is done using git diff and comparing filenames.
 # The build's checked-out branch causes the comparison to happen in one of two ways:

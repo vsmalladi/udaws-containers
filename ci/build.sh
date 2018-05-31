@@ -3,7 +3,6 @@
 # CI Build Script for U-DAWS-Dockerfiles
 #
 # Builds docker images when a commit to the repo changes a Dockerfile
-# Tags versioned images as `latest` when a symlink `latest` points to the version's directory
 #
 # Detecting changes to build is done using git diff and comparing filenames.
 # The build's checked-out branch causes the comparison to happen in one of two ways:
@@ -20,11 +19,14 @@
 #    irrelevant comments or blank lines to Dockerfiles.
 
 set -e
-source functions.sh
+source ci/functions.sh
 
 
 # Check that the Docker Hub organization to use is in the DOCKERHUB_ORG variable
 check_org
+
+# Fetch the newest changes for DEPLOY_BRANCH
+fetch_master
 
 # Get the range of commits to compare for detecting changed files
 compare_range=$(get_compare_range)

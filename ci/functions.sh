@@ -11,6 +11,30 @@ function get_num_parents() {
   echo $parents
 }
 
+function fetch_master()
+{
+    # Keep track of where Travis put us.
+    # We are on a detached head, and we need to be able to go back to it.
+    local build_head=$(git rev-parse HEAD)
+
+    current_branch=$(current_branch_name)
+    if [[ "$current_branch" != "$DEPLOY_BRANCH" ]]; then
+        # If branch is not deploy branch (e.g. master)
+        # fetch the current master branch
+        # Travis clones with `--depth`, which
+        # implies `--single-branch`, so we need to overwrite remote.origin.fetch to
+        # do that.
+        git config --replace-all remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
+        git fetch origin $DEPLOY_BRANCH
+
+        # create the tracking branch
+        git checkout -qf $DEPLOY_BRANCH
+
+        # finally, go back to where we were at the beginning
+        git checkout ${build_head}
+    fi
+}
+
 # Given a range, produce the list of file paths changed
 function changed_paths_in_range() {
   compare_range=$1
@@ -93,7 +117,7 @@ function ensure_local_image() {
 }
 
 # Given
-# 1. a Docker repo owner (e.g. "dukegcb") and
+# 1. a Docker repo owner (e.g. "medforomics") and
 # 2. a list of relative paths to Dockerfiles (e.g. "fastqc/0.11.4/Dockerfile bwa/0.7.12/Dockerfile",
 # issue a docker build command and tag any versions with a latest symlink
 function build_images() {
@@ -144,7 +168,7 @@ function build_images() {
 }
 
 # Given
-# 1. a Docker repo owner (e.g. "dukegcb") and
+# 1. a Docker repo owner (e.g. "medforomics") and
 # 2. a list of relative paths to Dockerfiles (e.g. "fastqc/0.11.4/Dockerfile bwa/0.7.12/Dockerfile",
 # issue a docker push command for the images built by build_images
 function push_images() {

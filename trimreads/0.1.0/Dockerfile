@@ -1,6 +1,6 @@
 # Base Image
 
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 # Metadata
 
@@ -33,11 +33,9 @@ ENV OPENJDK_VERSION=8.0.144
 RUN \
   conda install -c conda-forge openjdk=${OPENJDK_VERSION}
 
-
 ENV FASTQC_VERSION=0.11.5
 RUN \
   conda install -c bioconda fastqc=${FASTQC_VERSION}
-
 
 # Install cutadapt
 
@@ -50,6 +48,9 @@ RUN \
 ENV TRIMGALORE_VERSION="0.4.1"
 RUN \
   conda install -c bioconda trim-galore=${TRIMGALORE_VERSION}
+
+# Make working directory
+WORKDIR /data/
 
 # Export Path
 

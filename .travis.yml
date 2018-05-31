@@ -30,10 +30,10 @@ before_script:
 jobs:
   include:
     - stage: build
-      script: sh ci/build.sh
+      script: bash ci/build.sh
     - stage: test
       script: nosetests
-      script: sh ci/test.sh
+      script: bash ci/test.sh
     - stage: deploy
       script: docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
-      script: sh ci/deploy.sh
+      script: bash ci/deploy.sh

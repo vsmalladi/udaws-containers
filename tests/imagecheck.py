@@ -13,8 +13,8 @@ import yaml
 import re
 
 UNITTEST_FILENAME = "unittest.yml"
-TEST_WORKDIR = "/tmp"
-TEST_USER = "nobody"
+TEST_WORKDIR = "/data"
+TEST_USER = "udaws"
 
 
 def run_bash_cmd(command, ignore_non_zero_exit_status=False):

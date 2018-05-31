@@ -24,11 +24,6 @@ stages:
   - name: deploy
     if: branch = master
 
-before_script:
-  - if [ $TRAVIS_BRANCH != "master" ]; then
-      git fetch origin master --depth=1
-    fi
-
 jobs:
   include:
     - stage: build

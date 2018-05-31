@@ -26,6 +26,9 @@ source ci/functions.sh
 # Check that the Docker Hub organization to use is in the DOCKERHUB_ORG variable
 check_org
 
+# Fetch the newest changes for DEPLOY_BRANCH
+fetch_master
+
 # Get the range of commits to compare for detecting changed files
 compare_range=$(get_compare_range)
 

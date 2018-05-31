@@ -1,6 +1,6 @@
 # Base Image
 
-FROM ubuntu:17.04
+FROM ubuntu:18.04
 
 # Metadata
 

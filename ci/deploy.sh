@@ -8,10 +8,17 @@
 set -e
 source ci/functions.sh
 
-# See build-ci.sh for explanation of these conventions/rules
+# Check that the Docker Hub organization to use is in the DOCKERHUB_ORG variable
 check_org
 
+# Fetch the newest changes for DEPLOY_BRANCH
 compare_range=$(get_compare_range)
+
+# Get a list of changed paths in the repo to look for <tool>/<version>/Dockerfile
 paths=$(changed_paths_in_range "$compare_range")
 
+# Loop through the changed files and build Docker images for any that match
+# <tool>/<version>/Dockerfile. If none found, prints a message indicating so.
+# Push images that have changed to Docker hub.
+build_images "$DOCKERHUB_ORG" "$paths"
 push_images "$DOCKERHUB_ORG" "$paths"

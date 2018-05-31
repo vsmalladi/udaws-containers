@@ -56,6 +56,5 @@ ENV PATH=$PATH:/opt/conda/bin/python
 # Make working directory
 WORKDIR /data/
 
-# Define user
-
-USER udaws
+# Expose the following commands
+CMD ["/miniconda/bin/python", "/miniconda/bin/perl", "/miniconda/bin/fastqc", '/miniconda/bin/cutadapt', '/miniconda/bin/trim_galore']

@@ -65,8 +65,8 @@ def run_docker_get_output(imagename, cmd, workdir=None, user=None):
     if user:
         options += "--user {} ".format(user)
     options += "-it --rm "
-    print("Testing image {} with: docker run {} {}".format(imagename, options, cmd))
-    docker_cmd = "docker run {}{} {}".format(options, imagename, cmd)
+    print("Testing image {} with: docker run {} {} {}".format(imagename, options, imagename, cmd))
+    docker_cmd = "docker run {} {} {}".format(options, imagename, cmd)
     return run_bash_cmd(docker_cmd, ignore_non_zero_exit_status=True)
 
 

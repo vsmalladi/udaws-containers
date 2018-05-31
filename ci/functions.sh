@@ -117,7 +117,7 @@ function ensure_local_image() {
 }
 
 # Given
-# 1. a Docker repo owner (e.g. "dukegcb") and
+# 1. a Docker repo owner (e.g. "medforomics") and
 # 2. a list of relative paths to Dockerfiles (e.g. "fastqc/0.11.4/Dockerfile bwa/0.7.12/Dockerfile",
 # issue a docker build command and tag any versions with a latest symlink
 function build_images() {
@@ -168,7 +168,7 @@ function build_images() {
 }
 
 # Given
-# 1. a Docker repo owner (e.g. "dukegcb") and
+# 1. a Docker repo owner (e.g. "medforomics") and
 # 2. a list of relative paths to Dockerfiles (e.g. "fastqc/0.11.4/Dockerfile bwa/0.7.12/Dockerfile",
 # issue a docker push command for the images built by build_images
 function push_images() {

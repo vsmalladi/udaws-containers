@@ -25,7 +25,9 @@ stages:
     if: branch = master
 
 before_script:
-  - git fetch --depth=1
+  - if [ $TRAVIS_BRANCH != "master" ]; then
+      git fetch origin master --depth=1
+    fi
 
 jobs:
   include:

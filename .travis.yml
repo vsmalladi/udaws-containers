@@ -22,7 +22,7 @@ stages:
   - build
   - test
   - name: deploy
-    if: branch = master
+    if: branch = master && type NOT IN (pull_request)
 
 jobs:
   include:

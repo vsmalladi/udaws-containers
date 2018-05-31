@@ -33,11 +33,9 @@ ENV OPENJDK_VERSION=8.0.144
 RUN \
   conda install -c conda-forge openjdk=${OPENJDK_VERSION}
 
-
 ENV FASTQC_VERSION=0.11.5
 RUN \
   conda install -c bioconda fastqc=${FASTQC_VERSION}
-
 
 # Install cutadapt
 
@@ -54,3 +52,10 @@ RUN \
 # Export Path
 
 ENV PATH=$PATH:/opt/conda/bin/python
+
+# Make working directory
+WORKDIR /data/
+
+# Define user
+
+USER udaws

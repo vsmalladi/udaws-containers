@@ -1,7 +1,13 @@
 commands:
   - cmd: "fastqc -h"
     expect_text: ".*fastqc seqfile1 seqfile2.*"
+  - cmd: "fastqc --version"
+    expect_text: "FastQC v0.11.5"
   - cmd: "cutadapt -h"
     expect_text: ".*Usage:.*cutadapt -a ADAPTER.*"
+  - cmd: "cutadapt --version"
+    expect_text: "1.9.1"
   - cmd: "trim_galore --help"
     expect_text: ".*USAGE:.*trim_galore.*"
+  - cmd: "trim_galore --version"
+    expect_text: ".*version 0.4.1.*"

@@ -49,12 +49,9 @@ ENV TRIMGALORE_VERSION="0.4.1"
 RUN \
   conda install -c bioconda trim-galore=${TRIMGALORE_VERSION}
 
-# Export Path
-
-ENV PATH=$PATH:/opt/conda/bin/python
-
 # Make working directory
 WORKDIR /data/
 
-# Expose the following commands
-CMD ["/miniconda/bin/python", "/miniconda/bin/perl", "/miniconda/bin/fastqc", '/miniconda/bin/cutadapt', '/miniconda/bin/trim_galore']
+# Export Path
+
+ENV PATH=$PATH:/opt/conda/bin/python

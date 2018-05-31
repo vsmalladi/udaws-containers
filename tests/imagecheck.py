@@ -14,7 +14,6 @@ import re
 
 UNITTEST_FILENAME = "unittest.yml"
 TEST_WORKDIR = "/data"
-TEST_USER = "udaws"
 
 
 def run_bash_cmd(command, ignore_non_zero_exit_status=False):
@@ -84,7 +83,7 @@ def run_tests(imagename, unittest_filepath):
         if not re.match(expect_pattern, docker_output):
             print_test_error(cmd, expect_text, docker_output)
             had_error = True
-        docker_output_with_options = run_docker_get_output(imagename, cmd, workdir=TEST_WORKDIR, user=TEST_USER)
+        docker_output_with_options = run_docker_get_output(imagename, cmd, workdir=TEST_WORKDIR)
         if not re.match(expect_pattern, docker_output_with_options):
             print_test_error(cmd + " (with workdir and user options)", expect_text, docker_output_with_options)
             had_error = True

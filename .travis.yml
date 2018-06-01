@@ -21,8 +21,8 @@ install:
 stages:
   - build
   - test
-  - name: deploy
-    if: branch = master
+  - deploy
+#    if: branch = master
 
 jobs:
   include:

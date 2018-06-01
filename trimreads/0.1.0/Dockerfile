@@ -7,7 +7,7 @@ FROM ubuntu:18.04
 LABEL maintainer="Venkat Malladi"
 LABEL authors='venkat.malladi@utsouthwestern.edu'
 LABEL version='0.1.0'
-LABEL software='trim_galore, cutadapt, fastqc'
+LABEL software='trimgalore, cutadapt, fastqc'
 LABEL description='Image containing software to run read fastq triming.'
 LABEL tags='NGS'
 

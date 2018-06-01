@@ -51,8 +51,8 @@ function get_compare_range() {
   if [[ "$current_branch" == "$DEPLOY_BRANCH" ]]; then
       # On the deploy branch (e.g. master)
       # check_deploy_branch should have verified it is a merge commit
-      range_start="HEAD^1" # alias for first parent
-      range_end="HEAD^2" # alias for second parent
+      range_start="HEAD@{0}" # alias for first parent
+      range_end="HEAD@{1}" # alias for second parent
   else
     # Not on the deploy branch (e.g. master)
     # When not on the deploy branch, always compare with the deploy branch

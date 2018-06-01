@@ -2,7 +2,7 @@
 
 
 function current_branch_name() {
-  git rev-parse --abbrev-ref HEAD
+  echo $TRAVIS_BRANCH
 }
 
 function get_num_parents() {
@@ -48,7 +48,7 @@ function changed_paths_in_range() {
 # the current HEAD with the deploy_branch
 function get_compare_range() {
   current_branch=$(current_branch_name)
-  if [[ "$current_branch" != "$DEPLOY_BRANCH" ]]; then
+  if [[ "$current_branch" == "$DEPLOY_BRANCH" ]]; then
     # On the deploy branch (e.g. master)
     # Travis should check if this is a merge or not
     range_start="HEAD^1" # alias for first parent

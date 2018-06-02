@@ -16,7 +16,7 @@ The directory structure of this repository uses a convention to determine the na
 
 As this repository houses many `Dockerfile`s, the directory structure allows those to be organized by process name and version, allowing automatic builds and versioning conventions.
 
-`Dockerfile`s are organized into subdirectories based on the process and version. For example, the Dockerfile for trimreads version 0.1.0 is located at `trimreads/0.1.0/Doc kerfile`.
+`Dockerfile`s are organized into subdirectories based on the process and version. For example, the Dockerfile for trimreads version 0.1.0 is located at `trimreads/0.1.0/Dockerfile`.
 
 ### Versioning and Tags
 
@@ -29,7 +29,7 @@ $ ls -ld fastqc/*
 drwxr-xr-x  4 venkatmalladi  staff  136 May 30 13:54 trimreads/0.1.0
 ```
 
-Will build a Docker image `medforomics/trimreads:0.1.0` from the `Dockerfile` in `trimread/0.1.0`.
+Will build a Docker image `medforomics/trimreads:0.1.0` from the `Dockerfile` in `trimreads/0.1.0`.
 
 ### Naming Restrictions
 
@@ -94,6 +94,7 @@ commands:
 ### Adding a new tool
 
 1. Create a repo under the medforomics Docker Hub organization with the tool name
+2. Under collaborators, add the 'tbd' team with write access
 2. Create a branch for the new tool in your local copy of the repo
 3. Follow steps 2-10 under **Adding a new tool version**
 

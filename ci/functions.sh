@@ -63,6 +63,13 @@ function get_compare_range() {
   echo "$range_start $range_end"
 }
 
+
+function docker_login() {
+  owner=$1
+  passwd=$2
+  echo "docker login -u $owner -p $passwd"
+}
+
 # Given a docker repo owner, image name, and version, produce a local docker build command
 function build_docker_cmd() {
   owner=$1

@@ -33,5 +33,4 @@ jobs:
       script: bash ci/test.sh
     - stage: deploy
       if: type != pull_request
-      script: docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
       script: bash ci/deploy.sh

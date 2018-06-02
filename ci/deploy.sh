@@ -21,5 +21,6 @@ paths=$(changed_paths_in_range "$compare_range")
 # Loop through the changed files and build Docker images for any that match
 # <tool>/<version>/Dockerfile. If none found, prints a message indicating so.
 # Push images that have changed to Docker hub.
+docker_login "$DOCKERHUB_USER" "$DOCKERHUB_PASSWORD"
 build_images "$DOCKERHUB_ORG" "$paths"
 push_images "$DOCKERHUB_ORG" "$paths"

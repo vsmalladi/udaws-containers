@@ -2,7 +2,7 @@
 
 
 function current_branch_name() {
-  git rev-parse --abbrev-ref HEAD
+  echo $TRAVIS_BRANCH
 }
 
 function get_num_parents() {
@@ -49,14 +49,14 @@ function changed_paths_in_range() {
 function get_compare_range() {
   current_branch=$(current_branch_name)
   if [[ "$current_branch" == "$DEPLOY_BRANCH" ]]; then
-      # On the deploy branch (e.g. master)
-      # check_deploy_branch should have verified it is a merge commit
-      range_start="HEAD@{1}" # alias for first parent
-      range_end="HEAD@{2}" # alias for second parent
+    # On the deploy branch (e.g. master)
+    # Travis should check if this is a merge or not
+    range_start="HEAD^1" # alias for first parent
+    range_end="HEAD^2" # alias for second parent
   else
     # Not on the deploy branch (e.g. master)
     # When not on the deploy branch, always compare with the deploy branch
-    # Circle resets master to the tested commit, so we have to use origin/master
+    # Travis resets master to the tested commit, so we have to use origin/master
     range_start="origin/$DEPLOY_BRANCH"
     range_end="HEAD"
   fi

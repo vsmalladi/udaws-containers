@@ -14,7 +14,6 @@ check_org
 # Fetch the newest changes for DEPLOY_BRANCH
 compare_range=$(get_compare_range)
 
-echo $compare_range
 
 # Get a list of changed paths in the repo to look for <tool>/<version>/Dockerfile
 paths=$(changed_paths_in_range "$compare_range")

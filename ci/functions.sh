@@ -110,10 +110,7 @@ function ensure_local_image() {
   fi
 }
 
-function docker_login() {
-  echo "Logging into to Docker Hub as $DOCKERHUB_USER..."
-  echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-}
+
 
 # Given
 # 1. a Docker repo owner (e.g. "medforomics") and

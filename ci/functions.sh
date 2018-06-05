@@ -5,12 +5,6 @@ function current_branch_name() {
   echo $TRAVIS_BRANCH
 }
 
-function get_num_parents() {
-  sha=$1
-  parents=$(git cat-file -p $sha | grep parent | wc -l)
-  echo $parents
-}
-
 function fetch_master()
 {
     # Keep track of where Travis put us.

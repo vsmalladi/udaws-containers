@@ -33,5 +33,4 @@ jobs:
       script: bash ci/test.sh
     - stage: deploy
       if: type != pull_request
-      script: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin
       script: bash ci/deploy.sh

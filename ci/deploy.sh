@@ -22,4 +22,5 @@ paths=$(changed_paths_in_range "$compare_range")
 # <tool>/<version>/Dockerfile. If none found, prints a message indicating so.
 # Push images that have changed to Docker hub.
 build_images "$DOCKERHUB_ORG" "$paths"
+docker_login
 push_images "$DOCKERHUB_ORG" "$paths"

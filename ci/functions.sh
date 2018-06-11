@@ -110,6 +110,8 @@ function ensure_local_image() {
   fi
 }
 
+
+
 # Given
 # 1. a Docker repo owner (e.g. "medforomics") and
 # 2. a list of relative paths to Dockerfiles (e.g. "fastqc/0.11.4/Dockerfile bwa/0.7.12/Dockerfile",
@@ -176,7 +178,7 @@ function push_images() {
     if [[ "$filename" == "Dockerfile" && "$version" != "latest" ]]; then
       attempted_push="1"
       echo "Pushing $owner/$tool:$version..."
-      $(push_docker_cmd $owner $tool $version)
+      push_docker_cmd $owner $tool $version
       # Check if there's a symlink $tool/latest pointing to THIS version
       if [[ "$tool/latest/Dockerfile" -ef "$tool/$version/Dockerfile" ]]; then
         echo "Pushing $owner/$tool:latest..."

@@ -9,6 +9,7 @@ LABEL authors='venkat.malladi@utsouthwestern.edu'
 LABEL version='0.1.0'
 LABEL software='fastqc, cutadapt, trim_galore'
 LABEL description='Image containing software to run FASTQ trimming and quality metrics.'
+LABEL tags='NGS'
 
 # Install prerequisites
 

@@ -21,8 +21,6 @@
 set -e
 source ci/functions.sh
 
-docker --version
-echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
 # Check that the Docker Hub organization to use is in the DOCKERHUB_ORG variable
 check_org
 

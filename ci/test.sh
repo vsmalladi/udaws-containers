@@ -24,5 +24,7 @@ paths=$(changed_paths_in_range "$compare_range")
 # For all built images run through tests in unittest.yml files are found.
 build_images "$DOCKERHUB_ORG" "$paths"
 python3 tests/imagecheck.py "$DOCKERHUB_ORG" $paths
+docker images
 echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
 push_images "$DOCKERHUB_ORG" "$paths"
+docker images

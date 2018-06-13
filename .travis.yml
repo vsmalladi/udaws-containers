@@ -8,7 +8,7 @@ env:
   global:
   - DOCKERHUB_ORG=medforomics
   - DEPLOY_BRANCH=master
-  - DOCKERHUB_USER=udawsci
+  - DOCKERHUB_USERNAME=udawsci
 addons:
   apt:
     packages:

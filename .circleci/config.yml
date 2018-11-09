@@ -1,0 +1,31 @@
+version: 2
+jobs:
+  build:
+    docker:
+      # provides python3/bash/docker for build/deploying/testing images
+      - image: circleci/python:3.6.1
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Install python requirements
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r tests/requirements.txt
+      - run:
+          name: Build Docker Images
+          command: ./ci/build.sh
+      - run:
+          name: Run python code that tests the Docker Images
+          command: |
+            . venv/bin/activate
+            nosetests
+            ./ci/test.sh
+      - deploy:
+          name: Deploy Docker Images
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "${DEPLOY_BRANCH}" ]; then
+              docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
+              ./ci/deploy.sh
+            fi

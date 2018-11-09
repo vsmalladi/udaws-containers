@@ -25,7 +25,7 @@ jobs:
       - deploy:
           name: Deploy Docker Images
           command: |
-            if [ "${CIRCLE_BRANCH}" == "${DEPLOY_BRANCH}" ]; then
+            if [ "${CIRCLE_BRANCH}" == "${DEPLOY_BRANCH}" ] && [[ ! -z $CIRCLE_PULL_REQUEST ]]; then
               docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
               ./ci/deploy.sh
             fi

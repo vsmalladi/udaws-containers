@@ -6,7 +6,7 @@ FROM ubuntu:18.04
 
 LABEL maintainer="Venkat Malladi"
 LABEL authors='venkat.malladi@utsouthwestern.edu'
-LABEL version='1.0.0'
+LABEL version='0.1.0'
 LABEL software='fastqc, cutadapt, trim_galore'
 LABEL description='Image containing software to run FASTQ trimming and quality metrics.'
 
@@ -26,7 +26,6 @@ ENV PATH=/miniconda/bin:${PATH}
 RUN conda update -y conda
 
 # Install FastQC and dependencies
-
 
 # Needed for FastQC - conda build hangs without this
 ENV OPENJDK_VERSION=8.0.144

@@ -8,7 +8,7 @@ University of Texas Southwestern Data Analysis Workflows for Sequencing.
 Images produced are are pushed to [Docker Hub](https://hub.docker.com/) under the [medforomics organization](https://hub.docker.com/u/medforomics/) and suitable for use in [U-DAWS Workflows](https://git.biohpc.swmed.edu/BICF/Astrocyte/process_scripts) using [Nextflow](https://www.nextflow.io/).
 The images are also extendable to work with [Singularity](http://singularity.lbl.gov).
 
-Please open [an issue](https://github.com/medforomics/udaws-containers/issues) for questions related to U-DAWS Container usage, bug reports, or general inquiries.
+Please open [an issue](https://github.com/vsmalladi/udaws-containers/issues) for questions related to U-DAWS Container usage, bug reports, or general inquiries.
 
 ## Directory Structure
 
@@ -29,7 +29,7 @@ $ ls -ld fastqc/*
 drwxr-xr-x  4 venkatmalladi  staff  136 May 30 13:54 trimreads/0.1.0
 ```
 
-Will build a Docker image `medforomics/trimreads:0.1.0` from the `Dockerfile` in `trimreads/0.1.0`.
+Will build a Docker image `bicf/trimreads:0.1.0` from the `Dockerfile` in `trimreads/0.1.0`.
 
 ### Naming Restrictions
 
@@ -45,12 +45,12 @@ Tags:
 
 ## Continuous Integration
 
-[![Build Status](https://travis-ci.org/medforomics/udaws-containers.svg?branch=master)](https://travis-ci.org/medforomics/udaws-containers)
+[![CircleCI](https://circleci.com/gh/vsmalladi/udaws-containers.svg?style=svg)](https://circleci.com/gh/vsmalladi/udaws-containers)
 
 This repository contains 2 testing directories:
 
 + [`ci`](ci) contains files necessary for deployment via continuous integration.
-  For the CI configuration, see [`.travis.yml`](.travis.yml).
+  For the CI configuration, see [`.circleci/config.yml`](.circleci/config.yml).
 + [`tests`](tests) contains files necessary for testing Docker builds via continuous integration.
 
 

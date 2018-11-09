@@ -24,8 +24,11 @@ jobs:
             ./ci/test.sh
       - deploy:
           name: Deploy Docker Images
+          filters:
+            branches:
+              only: master
           command: |
-            if [ "${CIRCLE_BRANCH}" == "${DEPLOY_BRANCH}" ] && [[ ! -z $CIRCLE_PULL_REQUEST ]]; then
+            if [[ ! -z $CIRCLE_PULL_REQUEST ]]; then
               docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
               ./ci/deploy.sh
             fi

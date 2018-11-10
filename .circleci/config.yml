@@ -28,7 +28,5 @@ jobs:
             branches:
               only: master
           command: |
-            if [[ $CIRCLE_PR_NUMBER ]]; then
               docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
               ./ci/deploy.sh
-            fi

@@ -22,17 +22,6 @@ jobs:
             . venv/bin/activate
             nosetests
             ./ci/test.sh
-      - run:
-          name: Setup singularity
-          command: |
-            source .circleci/common.sh
-            sudo apt-get update; sudo apt-get install squashfs-tools libarchive-dev
-            wget https://github.com/singularityware/singularity/releases/download/$SINGULARITY_VER/singularity-$SINGULARITY_VER.tar.gz
-            tar xvf singularity-$SINGULARITY_VER.tar.gz
-            cd singularity-$SINGULARITY_VER
-            ./configure --prefix=/usr/local --sysconfdir=/etc
-            make
-            sudo make install
       - deploy:
           name: Deploy Docker Images
           filters:

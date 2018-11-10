@@ -49,6 +49,7 @@ RUN \
   conda install -c bioconda trim-galore=${TRIMGALORE_VERSION}
 
 # Make working directory
+
 WORKDIR /data/
 
 # Export Path

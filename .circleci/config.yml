@@ -28,7 +28,7 @@ jobs:
             branches:
               only: master
           command: |
-            if [[ ! -z $CIRCLE_PULL_REQUEST ]]; then
+            if [[ $CIRCLE_PULL_REQUEST ]]; then
               docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
               ./ci/deploy.sh
             fi

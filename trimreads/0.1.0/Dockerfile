@@ -53,4 +53,4 @@ WORKDIR /data/
 
 # Export Path
 
-ENV PATH=$PATH:/opt/conda/bin/python
+ENV PATH=/opt/conda/bin/python:$PATH

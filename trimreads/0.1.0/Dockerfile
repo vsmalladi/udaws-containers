@@ -28,6 +28,7 @@ RUN conda update -y conda
 # Install FastQC and dependencies
 
 # Needed for FastQC - conda build hangs without this
+
 ENV OPENJDK_VERSION=8.0.144
 RUN \
   conda install -c conda-forge openjdk=${OPENJDK_VERSION}

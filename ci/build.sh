@@ -39,4 +39,4 @@ print_changed "$compare_range" "$paths"
 
 # Loop through the changed files and build Docker images for any that match
 # <tool>/<version>/Dockerfile. If none found, prints a message indicating so.
-build_images "$DOCKERHUB_ORG" "$paths"
+build_images "$DOCKERHUB_USERNAME" "$paths"

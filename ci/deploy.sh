@@ -20,5 +20,5 @@ paths=$(changed_paths_in_range "$compare_range")
 
 
 # Push images that have changed to Docker hub.
-echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+docker login -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_PASSWORD"
 push_images "$DOCKERHUB_ORG" "$paths"
